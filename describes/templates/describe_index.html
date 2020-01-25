@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<div class="row">
+    {% for describe in describes %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img class="card-img-top" src="{% static 'img' %}">
+            <div class="card-body">
+                <h5 class="card-title">{{ describe.title }}</h5>
+                <p class="card-text">{{ describe.description }}</p>
+                <a class="btn btn-primary"
+                   href="{% url 'describe_detail' describe.pk %}">
+                    Read More
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
